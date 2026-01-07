@@ -80,7 +80,7 @@ class User(AbstractUser, BaseModel):
 
     def Token(self):
         refresh = RefreshToken.for_user(self)
-        return {"access_token": refresh.access_token, "refresh": refresh}
+        return {"access_token": str(refresh.access_token), "refresh": str}
 
     def clean(self):
         self.check_username()
